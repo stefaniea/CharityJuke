@@ -11,7 +11,6 @@ SC.connect(function() {
 });
 
 SC.get('/playlists/1234323', function(playlist) {
-	alert("get");
 	for (var i = 0; i < playlist.tracks.length; i++) {
 		console.log(playlist.tracks[i].length);
   	}
