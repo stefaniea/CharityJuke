@@ -41,6 +41,7 @@ function makeEvent() {
     var event_name = document.getElementById("event_name").value;
 
     if (event_name != "") {
+      $("#event_name_alert").hide();
       var guid = Math.floor(Math.random() * 100000);
       var user_id = localStorage.user_id || "user_id not found";
       var playlist_id = guid;
@@ -53,6 +54,9 @@ function makeEvent() {
       event.setSongPrice(0.25);
       event.setPrioritySongPrice(0.75);
       console.log(event);
-      window.location.href = "event.html";
+
+      window.location.href = '/event.html';
+    } else {
+      $("#event_name_alert").show();
     }
 }
