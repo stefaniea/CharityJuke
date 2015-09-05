@@ -30,4 +30,5 @@ function addSong(trackUrl) {
 	var element = '<a href="' + trackUrl + '"></a>';
 	console.log(element);
 	$(".sc-player").append(element);
+	// add song
 };
