@@ -1,4 +1,4 @@
- var myFirebaseRef = new Firebase("https://charityjuke.firebaseio.com/");
+ var myFirebaseRef = new Firebase("https://charityjuke.firebaseio.com/users");
 
 /* window.fbAsyncInit = function() {
     FB.init({
@@ -22,8 +22,15 @@ function facebookLogin() {
     myFirebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
     if (error) {
       console.log("Login Failed!", error);
+       localStorage.user_id = authData.facebook.id; // So hacky. Please change.
+      // Insert or update this user:
+      myFirebaseRef.set({
+        user_id: authData.facebook.id,
+        name: authData.facebook.displayName,
+        profile_img: authData.facebook.profileImageURL
+      });
+          });
     } else {
       console.log("Authenticated successfully with payload:", authData);
     }
-  });
   };
