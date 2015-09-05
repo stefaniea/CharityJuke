@@ -34,5 +34,4 @@ function facebookLogin() {
       }); //end set
     } // end else
   }); // authwithoauthpopup
-  };
-
+};
