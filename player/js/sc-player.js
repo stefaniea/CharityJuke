@@ -491,6 +491,7 @@
           .find('.sc-controls')
             .append('<a href="#play" class="sc-play">Play</a> <a href="#pause" class="sc-pause">Pause</a>')
           .end();
+          
         // load and parse the track data from SoundCloud API
         loadTracksData($player, links, opts.apiKey);
         // init the player GUI, when the tracks data was laoded
