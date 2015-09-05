@@ -5,5 +5,3 @@ SC.initialize({
 SC.get('/tracks', { q: 'kygo'}, function(tracks) {
   console.log(tracks);
 });
-
-alert("HELLO!");
