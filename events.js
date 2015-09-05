@@ -18,31 +18,51 @@ function Event(event_id, owner_id, playlist_id) {
     eventsRef.child("Event " + event_id).update({ endtime: this.endtime });
   };
   this.setSongPrice = function(price){
-    this.songPrice = price;
-    eventsRef.child("Event " + event_id).update({ song_price: this.songPrice });
+    this.song_price = price;
+    eventsRef.child("Event " + event_id).update({ song_price: this.song_price });
   };
   this.setPrioritySongPrice = function(priority_price){
-    this.prioritySongPrice = priority_price;
-    eventsRef.child("Event " + event_id).update({ priority_song_price: this.prioritySongPrice });
+    this.priority_song_price = priority_price;
+    eventsRef.child("Event " + event_id).update({ priority_song_price: this.priority_song_price });
+  }
+  this.setEventDescription = function(description){
+    this.event_description = description;
+    eventsRef.child("Event " + event_id).update({ description: this.event_description });
   }
 
   eventsRef.child("Event " + event_id).set({
     event_id: this.event_id,
     owner_id: this.owner_id,
-    playlist: []
+    playlist: [{
+      trackURL : "https://soundcloud.com/simone-boccardelli-bok/its-not-unusual-tom-jones", 
+      title : "It's Not Unusual",
+      artist : "Tom Jones",
+      artworkURL : "https://i1.sndcdn.com/artworks-000049693722-7phidi-t500x500.jpg",
+      owner_id: this.owner_id
+    }]
   });
 }
 
 function makeEvent() {
-  var guid = Math.floor(Math.random() * 100000);
-  var user_id = localStorage.user_id || "user_id not found";
-  var playlist_id = guid;
-  var event = new Event(guid, user_id, playlist_id);
+    var event_name = document.getElementById("event_name").value;
 
-  event.setEventName(document.getElementById("event_name").value);
-  event.setStartTime("12pm");
-  event.setEndTime("1pm");
-  event.setSongPrice(0.25);
-  event.setPrioritySongPrice(0.75);
-  console.log(event);
+    if (event_name != "") {
+      $("#event_name_alert").hide();
+      var guid = Math.floor(Math.random() * 100000);
+      var user_id = localStorage.user_id || "user_id not found";
+      var playlist_id = guid;
+      var event = new Event(guid, user_id, playlist_id);
+
+      event.setEventName(event_name);
+      event.setStartTime(document.getElementById("starttime").value);
+      event.setEndTime(document.getElementById("endtime").value);
+      event.setEventDescription(document.getElementById("event_description").value);
+      event.setSongPrice(0.25);
+      event.setPrioritySongPrice(0.75);
+      console.log(event);
+
+      window.location.href = '/event.html?event='+guid;
+    } else {
+      $("#event_name_alert").show();
+    }
 }

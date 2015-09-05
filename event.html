@@ -59,41 +59,25 @@
 
     <section class="bg-primary" id="about">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 text-center">
-                    <h2 class="section-heading">Make An Event</h2>
-                    <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <form class="form-horizontal">
-                      <fieldset>
-                      <!-- Text input-->
-                      <div class="form-group">
-                        <label class="col-md-6 control-label" for="event_name">Event Name</label>
-                        <div class="col-md-6">
-                        <input id="event_name" name="event_name" type="text" placeholder="e.g.: Potato Party" class="form-control input-md">
-                        </div>
-                      </div>
-                      <!-- Textarea -->
-                      <div class="form-group">
-                        <label class="col-lg-6 control-label" for="textarea">Event Description</label>
-                        <div class="col-lg-6">
-                          <textarea class="form-control" id="event_description" name="event_description">A party of potatoes!</textarea>
-                        </div>
-                      </div>
-                      </fieldset>
-                      <a href="makeEvent()" class="btn btn-default btn-xl">SUBMIT</a>
-                      </form>
-                </div>
-                <div class="col-lg-6">
-                    <div class="container">
-                        <a href="https://soundcloud.com/kygo/ed-sheeran-i-see-fire-kygo" class="sc-player"></a>
-                        <form id="tfnewsearch" method="get" action="soundcloud/track_search.js">
-                                <input type="text" id="tfq" name="q" size="21" maxlength="120" value="">
-                                <input type="submit" value="Search">
-                        </form>
-                    </div>
-                  </div>
+                    <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="event-name">Event Name</h1>
+                <p>Created by <i id="owner-name">your favorite DJ.</i></p>
+                <img src="default-img.jpg" class="img-circle" id="owner-img"/>
+                
             </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="player">
+        <div class="container">
+            <div id="#player"></div>
+            <form id="tfnewsearch" method="get" action="soundcloud/track_search.js">
+                    <input type="text" id="tfq" name="q" size="21" maxlength="120" value="">
+                    <input type="submit" value="Search">
+            </form>
+
         </div>
     </section>
 
@@ -116,7 +100,9 @@
 
     <!-- Custom Javascript for Charity Juke-->
     <script src="facebook.js"></script>
+    <script src="addSongToPlaylist.js"></script>
     <script src="events.js"></script>
+    <script src="load_event.js"></script>
 
     <!-- Soundcloud -->
     <script src="https://w.soundcloud.com/player/api.js"></script>
@@ -130,6 +116,12 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="player/js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="player/js/sc-player.js"></script>
+
+    <!-- Some stuff to do on load -->
+    <script>
+
+    LoadEvent(location.search.split('event=')[1]);
+    </script>
 
 </body>
 
