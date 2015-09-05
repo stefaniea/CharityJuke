@@ -53,5 +53,6 @@ function makeEvent() {
       event.setSongPrice(0.25);
       event.setPrioritySongPrice(0.75);
       console.log(event);
+      window.location.href = "event.html";
     }
 }
