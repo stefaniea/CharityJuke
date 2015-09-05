@@ -3,9 +3,9 @@ SC.initialize({
 });
 
 
-function newSearch() {
+function searchTrack() {
 	search($('#trackQuery').val());
-}
+};
 
 /** 
 *   Search for tracks with the given searchTerm
@@ -13,16 +13,21 @@ function newSearch() {
 function search(searchTerm) {
 	SC.get('/tracks', { q: searchTerm}, function(tracks) {
 		display(tracks);
-		console.log(tracks);
 	});	
-}
+};
 
 function display(jsonTracks) {
-	console.log("Tracks:");
+	var results = $('#search-results');
 	jsonTracks.forEach(function(track) {
-		console.log(track.permalink_url);
+		var element = '<li><a href="#" onclick="addSong(\'' + track.permalink_url + '\')">' + track.title + '</a></li>';
+		console.log(element);
+		$(results).append(element);
 	});
-}
+};
 
-
-
+function addSong(trackUrl) {
+	console.log(trackUrl);
+	var element = '<a href="' + trackUrl + '"></a>';
+	console.log(element);
+	$(".sc-player").append(element);
+};

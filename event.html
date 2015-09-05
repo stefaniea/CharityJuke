@@ -70,6 +70,21 @@
         </div>
     </section>
 
+    <section id="player">
+        <div class="container">
+            <div class="sc-player"></div>
+            
+            <form id="search" action="javascript:searchTrack();">
+                <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
+                
+                <button type="button" onclick='javascript:searchTrack();'>Search</button>
+            </form>
+
+        </div>
+
+        <div id="search-results"></div>
+    </section>
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -89,8 +104,9 @@
 
     <!-- Custom Javascript for Charity Juke-->
     <script src="facebook.js"></script>
+    <script src="addSongToPlaylist.js"></script>
     <script src="events.js"></script>
-    <script src="join_event.js"></script>
+    <script src="load_event.js"></script>
 
     <!-- Soundcloud -->
     <script src="https://w.soundcloud.com/player/api.js"></script>
@@ -104,6 +120,12 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="player/js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="player/js/sc-player.js"></script>
+
+    <!-- Some stuff to do on load -->
+    <script>
+
+    LoadEvent(location.search.split('event=')[1]);
+    </script>
 
 </body>
 
