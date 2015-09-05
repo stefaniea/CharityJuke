@@ -168,16 +168,17 @@
 
     <section id="player">
         <div class="container">
-            <a href="https://soundcloud.com/davidhbui/sets/charityjuke-test-01" class="sc-player"></a>
+            <div class="sc-player"></div>
             
-<!--             <form id="search" method="get" action="javascript:newSearch()">
- -->        <form id="search" action="javascript:newSearch();">
+            <form id="search" action="javascript:searchTrack();">
                 <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
                 
-                <button type="button" onclick='javascript:newSearch();'>Search</button>
+                <button type="button" onclick='javascript:searchTrack();'>Search</button>
             </form>
 
         </div>
+
+        <div id="search-results"></div>
     </section>
 
     <!-- jQuery -->
