@@ -60,3 +60,9 @@ function makeEvent() {
       $("#event_name_alert").show();
     }
 }
+
+function search() {
+  var search_id = document.getElementById("search_input").value;
+  alert(search_id);
+  return false;
+}
