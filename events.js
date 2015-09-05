@@ -33,7 +33,9 @@ function Event(event_id, owner_id, playlist_id) {
   eventsRef.child("Event " + event_id).set({
     event_id: this.event_id,
     owner_id: this.owner_id,
-    playlist: []
+    playlist: [Song("https://soundcloud.com/simone-boccardelli-bok/its-not-unusual-tom-jones", 
+      "It's Not Unusual", "Tom Jones", 
+      "https://i1.sndcdn.com/artworks-000049693722-7phidi-t500x500.jpg")]
   });
 }
 

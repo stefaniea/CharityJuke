@@ -22,11 +22,16 @@ function PopulateHtml(ev) {
 	} else {
 		$('#event-name').text(ev.event_name);
 	 	GetUserAndPopulate(ev.owner_id+"");
-		// populate playlist and other info here
+	 	var playlist = $("#player");
+	 	console.log(playlist);
+		for(var i = 0; i < ev.playlist.length; i++) {
+			var link = $();
+			player.append("<a href='"+ev.playlist[i].trackURL+"' class='sc-player'></a>");
+		}
 	 }
-}
+};
 
-function JoinEvent(EventID) {
+function LoadEvent(EventID) {
 		eventsRef.child("Event "+EventID).on("value", function(snapshot) {
  		console.log(snapshot.key());
  		var ev = snapshot.val();

@@ -70,6 +70,17 @@
         </div>
     </section>
 
+     <section id="player">
+        <div class="container">
+            <div id="#player"></div>
+            <form id="tfnewsearch" method="get" action="soundcloud/track_search.js">
+                    <input type="text" id="tfq" name="q" size="21" maxlength="120" value="">
+                    <input type="submit" value="Search">
+            </form>
+
+        </div>
+    </section>
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -90,7 +101,8 @@
     <!-- Custom Javascript for Charity Juke-->
     <script src="facebook.js"></script>
     <script src="events.js"></script>
-    <script src="join_event.js"></script>
+    <script src="load_event.js"></script>
+    <script src="addSongToPlaylist.js"></script>
 
     <!-- Soundcloud -->
     <script src="https://w.soundcloud.com/player/api.js"></script>
