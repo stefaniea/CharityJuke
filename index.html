@@ -94,11 +94,67 @@
                     <hr class="light">
                     <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
                     <a href="#" onclick="facebookLogin()" class="btn btn-default btn-xl">LOGIN</a>
-                    <a href="event.html" class="btn btn-default btn-xl">MAKE AN EVENT</a>
+                    <a href="#" class="btn btn-default btn-xl" data-toggle="modal" data-target="#myModalHorizontal">MAKE AN EVENT</a>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Modal -->
+    <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                       data-dismiss="modal">
+                           <span aria-hidden="true">&times;</span>
+                           <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Create an Event
+                    </h4>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form">
+                      <div class="form-group">
+                        <label  class="col-sm-2 control-label">Event Name</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control"
+                            id="event_name" placeholder="Event Name"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"
+                                id="inputPassword3" placeholder="Password"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textarea">Event Description</label>
+                        <div class="col-sm-10">
+                          <textarea class="form-control" id="event_description" name="event_description">A party of potatoes!</textarea>
+                        </div>
+                      </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="makeEvent()">
+                        Create Event
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <!--     <section id="services">
         <div class="container">
