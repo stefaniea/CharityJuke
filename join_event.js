@@ -1,33 +1,36 @@
+// For joining and displaying events
+
 var eventsRef = new Firebase("https://charityjuke.firebaseio.com/events");
 
-function GetUser(user_id) {
-	var usersRef = new Firebase("https://charityjuke.firebaseio.com/users");
-	eventsRef.orderByChild("user_id").equalTo(user_id).on("value", function(snapshot) {
+function GetUserAndPopulate(user_id) {
+	var ref = new Firebase("https://charityjuke.firebaseio.com");
+	var usersRef = ref.child("users");
+	var user;
+	usersRef.child("User "+ user_id).on("value", function(snapshot) {
  		console.log(snapshot.key());
- 		var user = snapshot.val();
- 		console.log(user);
- 		return user;
+ 		user = snapshot.val();
+ 		console.log("GetUser: " + user);
+		$('#owner-name').text(user.name);
+		$('#owner-img').attr('src', user.profile_img);
 	});
-}
+	return user;
+};
 
 function PopulateHtml(ev) {
 	if (ev.length && ev.length < 1) {
 		console.log("Event ID resulted in 0 events.");
 	} else {
-		$('#event-name').innerHTML = ev.event_name;
-		var user = GetUser(ev.owner_id);
-		$('#owner-name').innertHTML = user.name;
-		$('#owner-picture').src = user.profile_img;
+		$('#event-name').text(ev.event_name);
+	 	GetUserAndPopulate(ev.owner_id+"");
 		// populate playlist and other info here
 	 }
 }
 
 function JoinEvent(EventID) {
-		eventsRef.orderByChild("event_id").equalTo(EventID).on("value", function(snapshot) {
+		eventsRef.child("Event "+EventID).on("value", function(snapshot) {
  		console.log(snapshot.key());
  		var ev = snapshot.val();
  		console.log(snapshot.val());
- 			PopulateHtml(ev);
- 		 }
-	});
+ 		PopulateHtml(ev);
+ 		 });
 };
