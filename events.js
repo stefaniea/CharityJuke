@@ -18,12 +18,16 @@ function Event(event_id, owner_id, playlist_id) {
     eventsRef.child("Event " + event_id).update({ endtime: this.endtime });
   };
   this.setSongPrice = function(price){
-    this.songPrice = price;
-    eventsRef.child("Event " + event_id).update({ song_price: this.songPrice });
+    this.song_price = price;
+    eventsRef.child("Event " + event_id).update({ song_price: this.song_price });
   };
   this.setPrioritySongPrice = function(priority_price){
-    this.prioritySongPrice = priority_price;
-    eventsRef.child("Event " + event_id).update({ priority_song_price: this.prioritySongPrice });
+    this.priority_song_price = priority_price;
+    eventsRef.child("Event " + event_id).update({ priority_song_price: this.priority_song_price });
+  }
+  this.setEventDescription = function(description){
+    this.event_description = description;
+    eventsRef.child("Event " + event_id).update({ description: this.event_description });
   }
 
   eventsRef.child("Event " + event_id).set({
@@ -40,8 +44,9 @@ function makeEvent() {
   var event = new Event(guid, user_id, playlist_id);
 
   event.setEventName(document.getElementById("event_name").value);
-  event.setStartTime("12pm");
-  event.setEndTime("1pm");
+  event.setStartTime(document.getElementById("starttime").value);
+  event.setEndTime(document.getElementById("endtime").value);
+  event.setEventDescription(document.getElementById("event_description").value);
   event.setSongPrice(0.25);
   event.setPrioritySongPrice(0.75);
   console.log(event);
