@@ -1,10 +1,20 @@
 var myFirebaseRef = new Firebase("https://charityjuke.firebaseio.com/");
 
-function Song(trackURL, title, artist, artworkURL) {
+function addedSong(trackURL, title, artist, artworkURL, user_id) {
 	this.trackURL = trackURL;
 	this.title = title;
 	this.artist = artist;
 	this.artworkURL = artworkURL;
+	this.addedBy = function(user_id) {
+		var usersRef = myFirebaseRef.child("users");
+		var user;
+		usersRef.child("User "+ user_id).on("value", function(snapshot) {
+	 		console.log(snapshot.key());
+	 		user = snapshot.val();
+	 		console.log("GetUser: " + user);
+		});
+		this.addedBy = user;
+	};
 }
 
 function addSongToPlaylist(EventID, song) {
