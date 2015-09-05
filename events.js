@@ -34,7 +34,7 @@ function Event(event_id, owner_id, playlist_id) {
     event_id: this.event_id,
     owner_id: this.owner_id,
     playlist: [{
-      trackURL : "https://soundcloud.com/simone-boccardelli-bok/its-not-unusual-tom-jones", 
+      trackURL : "https://soundcloud.com/simone-boccardelli-bok/its-not-unusual-tom-jones",
       title : "It's Not Unusual",
       artist : "Tom Jones",
       artworkURL : "https://i1.sndcdn.com/artworks-000049693722-7phidi-t500x500.jpg",
@@ -65,4 +65,10 @@ function makeEvent() {
     } else {
       $("#event_name_alert").show();
     }
+}
+
+function search() {
+  var search_id = document.getElementById("search_input").value;
+  alert(search_id);
+  return false;
 }
