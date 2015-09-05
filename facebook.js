@@ -22,15 +22,17 @@ function facebookLogin() {
     myFirebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
     if (error) {
       console.log("Login Failed!", error);
+
+    } else {
+      console.log("Authenticated successfully with payload:", authData);
        localStorage.user_id = authData.facebook.id; // So hacky. Please change.
-      // Insert or update this user:
-      myFirebaseRef.set({
+       // Insert or update this user:
+       myFirebaseRef.set({
         user_id: authData.facebook.id,
         name: authData.facebook.displayName,
         profile_img: authData.facebook.profileImageURL
-      });
-          });
-    } else {
-      console.log("Authenticated successfully with payload:", authData);
-    }
+      }); //end set
+    } // end else
+  }); // authwithoauthpopup
   };
+
