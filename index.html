@@ -111,7 +111,7 @@
                            <span aria-hidden="true">&times;</span>
                            <span class="sr-only">Close</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">
+                    <h4 class="modal-title" id="modalLabel" style="text-align: center;">
                         Create an Event
                     </h4>
                 </div>
@@ -121,23 +121,48 @@
 
                     <form class="form-horizontal" role="form">
                       <div class="form-group">
-                        <label  class="col-sm-2 control-label">Event Name</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control"
-                            id="event_name" placeholder="Event Name"/>
+                        <label class="col-sm-4 control-label">Event Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="event_name" placeholder="Event Name"/>
+                            <span id="event_name_alert" class="help-block" style="display: none; color: red;"><small> Please provide a name for your event.</span></small>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control"
-                                id="inputPassword3" placeholder="Password"/>
+                        <label class="col-sm-4 control-label">Date</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="date"/>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-2 control-label" for="textarea">Event Description</label>
-                        <div class="col-sm-10">
-                          <textarea class="form-control" id="event_description" name="event_description">A party of potatoes!</textarea>
+                        <label class="col-sm-4 control-label">Start Time</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="starttime"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">End Time</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="endtime"/>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0px;">
+                        <label class="col-sm-4 control-label">Price</label>
+                        <div class="col-sm-8">
+                          $<input type="number" min="0.01" step="0.01" max="2500" value="0.25" />
+                          <span class="help-block"><small>Set the price to add one song to your event's playlist!</span></small>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0px;">
+                        <label class="col-sm-4 control-label">Priority Price</label>
+                        <div class="col-sm-8">
+                          $<input type="number" min="0.01" step="0.01" max="2500" value="0.75" />
+                          <span class="help-block"><small>Set the price to add one priority song (plays immediately) to your event's playlist!</span></small>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label" for="textarea">Event Description</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" id="event_description" name="event_description" placeholder="A party of potatoes!"></textarea>
                         </div>
                       </div>
                 </div>
@@ -147,7 +172,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         Cancel
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="makeEvent()">
+                    <button type="button" class="btn btn-default" onclick="makeEvent()">
                         Create Event
                     </button>
                 </div>
@@ -156,145 +181,6 @@
     </div>
 
 
-<!--     <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <aside class="bg-dark">
         <div class="container text-center">
@@ -307,10 +193,13 @@
 
     <section id="player">
         <div class="container">
-            <a href="https://soundcloud.com/kygo/ed-sheeran-i-see-fire-kygo" class="sc-player"></a>
-            <form id="tfnewsearch" method="get" action="soundcloud/track_search.js">
-                    <input type="text" id="tfq" name="q" size="21" maxlength="120" value="">
-                    <input type="submit" value="Search">
+            <a href="https://soundcloud.com/davidhbui/sets/charityjuke-test-01" class="sc-player"></a>
+
+<!--             <form id="search" method="get" action="javascript:newSearch()">
+ -->        <form id="search" action="javascript:newSearch();">
+                <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
+
+                <button type="button" onclick='javascript:newSearch();'>Search</button>
             </form>
 
         </div>
