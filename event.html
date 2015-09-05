@@ -70,15 +70,19 @@
         </div>
     </section>
 
-     <section id="player">
+    <section id="player">
         <div class="container">
-            <div id="#player"></div>
-            <form id="tfnewsearch" method="get" action="soundcloud/track_search.js">
-                    <input type="text" id="tfq" name="q" size="21" maxlength="120" value="">
-                    <input type="submit" value="Search">
+            <div class="sc-player"></div>
+            
+            <form id="search" action="javascript:searchTrack();">
+                <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
+                
+                <button type="button" onclick='javascript:searchTrack();'>Search</button>
             </form>
 
         </div>
+
+        <div id="search-results"></div>
     </section>
 
     <!-- jQuery -->
