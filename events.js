@@ -38,16 +38,20 @@ function Event(event_id, owner_id, playlist_id) {
 }
 
 function makeEvent() {
-  var guid = Math.floor(Math.random() * 100000);
-  var user_id = localStorage.user_id || "user_id not found";
-  var playlist_id = guid;
-  var event = new Event(guid, user_id, playlist_id);
+    var event_name = document.getElementById("event_name").value;
 
-  event.setEventName(document.getElementById("event_name").value);
-  event.setStartTime(document.getElementById("starttime").value);
-  event.setEndTime(document.getElementById("endtime").value);
-  event.setEventDescription(document.getElementById("event_description").value);
-  event.setSongPrice(0.25);
-  event.setPrioritySongPrice(0.75);
-  console.log(event);
+    if (event_name != "") {
+      var guid = Math.floor(Math.random() * 100000);
+      var user_id = localStorage.user_id || "user_id not found";
+      var playlist_id = guid;
+      var event = new Event(guid, user_id, playlist_id);
+
+      event.setEventName(event_name);
+      event.setStartTime(document.getElementById("starttime").value);
+      event.setEndTime(document.getElementById("endtime").value);
+      event.setEventDescription(document.getElementById("event_description").value);
+      event.setSongPrice(0.25);
+      event.setPrioritySongPrice(0.75);
+      console.log(event);
+    }
 }
