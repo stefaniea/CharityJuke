@@ -33,9 +33,13 @@ function Event(event_id, owner_id, playlist_id) {
   eventsRef.child("Event " + event_id).set({
     event_id: this.event_id,
     owner_id: this.owner_id,
-    playlist: [Song("https://soundcloud.com/simone-boccardelli-bok/its-not-unusual-tom-jones", 
-      "It's Not Unusual", "Tom Jones", 
-      "https://i1.sndcdn.com/artworks-000049693722-7phidi-t500x500.jpg")]
+    playlist: [{
+      trackURL : "https://soundcloud.com/simone-boccardelli-bok/its-not-unusual-tom-jones", 
+      title : "It's Not Unusual",
+      artist : "Tom Jones",
+      artworkURL : "https://i1.sndcdn.com/artworks-000049693722-7phidi-t500x500.jpg",
+      owner_id: this.owner_id
+    }]
   });
 }
 
@@ -57,7 +61,7 @@ function makeEvent() {
       event.setPrioritySongPrice(0.75);
       console.log(event);
 
-      window.location.href = '/event.html';
+      window.location.href = '/event.html?event='+guid;
     } else {
       $("#event_name_alert").show();
     }
