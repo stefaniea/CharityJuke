@@ -2,15 +2,15 @@
 
 function updateButtonDisplay() {
     var user = localStorage.user_id;
-        if (user) {
-            $("#login").hide();
-            $("#event").show();
-            $("#browse").show();
-        } else {
-            $("#event").hide();
-            $("#browse").hide();
-            $("#login").show();
-        }
+    if (user) {
+        $("#login").hide();
+        $("#event").show();
+        $("#browse").show();
+    } else {
+        $("#event").hide();
+        $("#browse").hide();
+        $("#login").show();
+    }
 };
 
 function facebookLogin() {
@@ -30,4 +30,5 @@ function facebookLogin() {
     } // end else
   }); // authwithoauthpopup
     updateButtonDisplay();
+    location.reload();
 };
