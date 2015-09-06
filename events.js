@@ -29,6 +29,10 @@ function Event(event_id, owner_id, playlist_id) {
     this.event_description = description;
     eventsRef.child("Event " + event_id).update({ description: this.event_description });
   }
+  this.setVenmoID = function(venmo_id){
+    this.venmo_id = venmo_id;
+    eventsRef.child("Event " + event_id).update({ venmo_id: this.venmo_id});
+  }
 
   eventsRef.child("Event " + event_id).set({
     event_id: this.event_id,
@@ -59,6 +63,7 @@ function makeEvent() {
       event.setEventDescription(document.getElementById("event_description").value);
       event.setSongPrice(0.25);
       event.setPrioritySongPrice(0.75);
+      event.setVenmoID(document.getElementById("venmo_id").value);
       console.log(event);
 
       window.location.href = '/event.html?event='+guid;
@@ -68,7 +73,33 @@ function makeEvent() {
 }
 
 function search() {
-  var search_id = document.getElementById("search_input").value;
-  alert(search_id);
+  var query = document.getElementById("search_input").value;
+
+  var query_results = [];
+  eventsRef.once("value", function(snapshot) {
+      snapshot.forEach(function(namesnapshot) {
+        var name = namesnapshot.val().event_name || "";
+        if (name.indexOf(query) >= 0) {
+          var result = name + " " + namesnapshot.key();
+          query_results.push(result);
+        }
+      });
+      if (query_results.length == 0) {
+        query_results.push("No matching events found D:");
+        console.log("No matching events found D:");
+      }
+      console.log(query_results);
+  });
+
+  addSearchResultsToHtml(query_results);
   return false;
+}
+
+function addSearchResultsToHtml(query_results) {
+  var results = $('#search-results');
+	query_results.forEach(function(result) {
+		// TODO: make this into a pretty grid
+		var element = '<li><a href="#">' + result + '</a></li>';
+		results.append(element);
+	});
 }
