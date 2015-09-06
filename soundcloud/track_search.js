@@ -29,14 +29,17 @@ function display(jsonTracks) {
 
 function addSong(trackUrl, title, artwork_url) {
 	console.log("trackURL " + trackUrl + "; title " + title + "; artwork_url " + artwork_url);
+	var event_id = location.search.split('event=')[1];
+
+	// PAYMENT STUFF
+	getSongPrice(event_id, trackUrl);
+
 	var element = '<a href="' + trackUrl + '"></a>';
 	console.log(element);
 	$(".sc-player").append(element);
-	var event_id = location.search.split('event=')[1];
 	var user_id = localStorage.user_id || "user_id not found";
 	if (!title) title = "untitled";
 	var song = new addedSong(trackUrl, title, "unknown", artwork_url, user_id);
 	console.log("THIS IS THE SONG OBJ" + song);
 	addSongToPlaylist(event_id, song);
-	// add song
 };
