@@ -120,7 +120,8 @@ function addSearchResultsToHtml(query_results) {
 
 	query_results.forEach(function(result) {
 		// TODO: make this into a pretty grid
-		var element = '<li class="event"><a href="#" class="text-faded">' + result + '</a></li>';
+    var pieces = result.split("Event ");
+		var element = '<li class="event"><a href="/event.html?event=' + pieces[pieces.length-1] + '" class="text-faded">' + result + '</a></li>';
 		results.append(element);
 	});
 }
