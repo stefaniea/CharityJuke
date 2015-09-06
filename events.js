@@ -74,6 +74,7 @@ function makeEvent() {
 
 function search() {
   var query = document.getElementById("search_input").value;
+  $('#search-results').empty();
 
   var query_results = [];
   eventsRef.once("value", function(snapshot) {
@@ -88,18 +89,20 @@ function search() {
         query_results.push("No matching events found D:");
         console.log("No matching events found D:");
       }
-      console.log(query_results);
+      addSearchResultsToHtml(query_results);
   });
 
-  addSearchResultsToHtml(query_results);
+  
   return false;
 }
 
 function addSearchResultsToHtml(query_results) {
   var results = $('#search-results');
+  results.append('<h1>Search Results:</h1>');
+
 	query_results.forEach(function(result) {
 		// TODO: make this into a pretty grid
-		var element = '<li><a href="#">' + result + '</a></li>';
+		var element = '<li class="event"><a href="#" class="text-faded">' + result + '</a></li>';
 		results.append(element);
 	});
 }

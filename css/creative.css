@@ -72,6 +72,14 @@ aside {
     padding: 50px 0;
 }
 
+li {
+    list-style-type: none;
+}
+
+li.event {
+    padding: 20px;
+}
+
 .no-padding {
     padding: 0;
 }
