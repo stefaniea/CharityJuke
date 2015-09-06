@@ -26,7 +26,7 @@ function display(jsonTracks) {
     }
 		var element = '<div class=\'row\'><div class=\'container\'><a href="#" onclick="addSong(\'' + track.permalink_url +
 			'\',\'' + track.title +'\',\'' +
-			artwork_url + '\')"><li class="list-group-item"><div><img style="height: 100px;" src='+ '\'' + artwork_url + '\'' +'/><span style="margin-left: 10px">'+ track.title +'</span></div></a></li></div></div>';
+			artwork_url + '\')"><li class="list-group-item"><div><img style="height: 100px;" src='+ '\'' + artwork_url + '\'' +'/><span style="color: white; margin-left: 10px">'+ track.title +'</span></div></a></li></div></div>';
 			$(results).append(element);
 		});
 };
