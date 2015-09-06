@@ -85,6 +85,7 @@ function search() {
         }
       });
       if (query_results.length == 0) {
+        query_results.push("No matching events found D:");
         console.log("No matching events found D:");
       }
       console.log(query_results);
