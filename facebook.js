@@ -27,7 +27,7 @@ function facebookLogin() {
         name: authData.facebook.displayName,
         profile_img: authData.facebook.profileImageURL
       }); //end set
+            updateButtonDisplay();
     } // end else
   }); // authwithoauthpopup
-    updateButtonDisplay();
 };
