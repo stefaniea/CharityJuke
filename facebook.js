@@ -2,15 +2,24 @@
 
 function updateButtonDisplay() {
     var user = localStorage.user_id;
-        if (user) {
+        if (user != "" && user) {
             $("#login").hide();
+            $("#logout").show();
             $("#event").show();
             $("#browse").show();
         } else {
+            $("#logout").hide();
             $("#event").hide();
             $("#browse").hide();
             $("#login").show();
         }
+};
+
+function facebookLogoutJK() {
+  localStorage.user_id = "";
+  myFirebaseRef.unauth();
+  updateButtonDisplay();
+  location.reload();
 };
 
 function facebookLogin() {
