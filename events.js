@@ -132,7 +132,7 @@ function search() {
       }
       addSearchResultsToHtml(query_results);
   });
-  
+
   return false;
 }
 

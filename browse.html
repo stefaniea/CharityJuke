@@ -76,8 +76,8 @@
                     <div class="input-group stylish-input-group">
                         <input type="text" id="search_input" class="form-control" style="border-bottom-width: 0px; border-top-width: 0px;" placeholder="Search" >
                         <span class="input-group-addon" style="border-bottom-width: 0px; border-top-width: 0px;" >
-                            <button type="button" onclick="search()">
-                                <span class="glyphicon glyphicon-search"></span>
+                            <button type="button" id="search_events_button" onclick="search()">
+                                <a href="#event-search-results" class="page-scroll"><span class="glyphicon glyphicon-search"></span></a>
                             </button>
                         </span>
                     </div>
@@ -98,7 +98,7 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Make a Playlist Now!</h2>
+                <h2>Create An Event</h2>
                 <a href="#" class="btn btn-default btn-xl wow tada" data-toggle="modal" data-target="#myModalHorizontal">Start Here!</a>
             </div>
         </div>
@@ -217,6 +217,15 @@
 
     <!-- Node -->
     <script src="node_app.js"></script>
+    <script type="text/javascript">
+      $('body').keypress(function(event){
+        if(event.keyCode == 13){
+          $('#search_events_button').click();
+          console.log("e");
+          $('html,body').animate({scrollTop: $("#event-search-results").offset().top});
+        }
+    });
+    </script>
 </body>
 
 </html>

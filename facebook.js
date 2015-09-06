@@ -39,9 +39,6 @@ function facebookLogin() {
             updateButtonDisplay();
     } // end else
   }); // authwithoauthpopup
-<<<<<<< HEAD
     updateButtonDisplay();
     location.reload();
-=======
->>>>>>> ac822a8467525139956cf717c7388d45afa2f2bd
 };
