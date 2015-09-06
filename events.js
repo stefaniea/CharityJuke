@@ -61,8 +61,8 @@ function makeEvent() {
       event.setStartTime(document.getElementById("starttime").value);
       event.setEndTime(document.getElementById("endtime").value);
       event.setEventDescription(document.getElementById("event_description").value);
-      event.setSongPrice(0.25);
-      event.setPrioritySongPrice(0.75);
+      event.setSongPrice(document.getElementById("price").value);
+      event.setPrioritySongPrice(document.getElementById("priority_price").value);
       event.setVenmoID(document.getElementById("venmo_id").value);
       console.log(event);
 
