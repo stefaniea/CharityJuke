@@ -21,6 +21,9 @@ function PopulateHtml(ev) {
 		console.log("Event ID resulted in 0 events.");
 	} else {
 		$('#event-name').text(ev.event_name);
+		if (ev.description) {
+			$('#event-description').text(ev.description);
+		}
 	 	GetUserAndPopulate(ev.owner_id+"");
 	 	var container = $("#playlist");
 	 	container.html("");
