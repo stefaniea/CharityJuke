@@ -10,7 +10,7 @@ function addedSong(trackURL, title, artist, artworkURL, user_id) {
 
 function addSongToPlaylist(EventID, song) {
 	var eventsRef = new Firebase("https://charityjuke.firebaseio.com/events");
-	eventsRef.child("Event "+EventID).on("value", function(snapshot) {
+	eventsRef.child("Event "+EventID).once("value", function(snapshot) {
  		console.log(snapshot.key());
  		var ev = snapshot.val();
  		console.log(snapshot.val());
@@ -26,9 +26,10 @@ function addSongToPlaylist(EventID, song) {
  			 }
  			 console.log(updated_playlist);
  			 eventsRef.child("Event "+EventID).update({playlist : updated_playlist});
- 			} /*else {
- 				eventsRef.child("Event "+EventID).set({"playlist" : [song]});
- 			}*/
+ 			} else {
+ 				eventsRef.child("Event "+EventID).set({playlist : [song]});
+ 			}
  		 }
 	});
+	LoadEvent(EventID);
 };

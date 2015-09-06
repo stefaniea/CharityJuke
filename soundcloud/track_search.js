@@ -19,21 +19,24 @@ function search(searchTerm) {
 function display(jsonTracks) {
 	var results = $('#search-results');
 	jsonTracks.forEach(function(track) {
-		var element = '<li><a href="#" onclick="addSong(\'' + track.permalink_url + '\')">' + track.title + '</a></li>';
-		console.log(element);
+		// TODO: make this into a pretty grid with artwork yay
+		url = track.permalink_url || "no";
+		var element = '<li><a href="#" onclick="addSong(\'' + track.permalink_url + '\',\'' + track.title +'\',\'' + track.artwork_url + '\')">' + track.title + '</a></li>';
+		console.log("THIS IS THE ELEMENT " + element);
 		$(results).append(element);
-		var event_id = location.search.split('event=')[1];
-		var user_id = localStorage.user_id || "user_id not found";
-		var song = new addedSong(track.permalink_url, track.title, "unknown", track.artwork_url, user_id);
-		console.log("THIS IS THE SONG OBJ" + song);
-		addSongToPlaylist(event_id, song);
 	});
 };
 
-function addSong(trackUrl) {
-	console.log(trackUrl);
+function addSong(trackUrl, title, artwork_url) {
+	console.log("trackURL " + trackUrl + "; title " + title + "; artwork_url " + artwork_url);
 	var element = '<a href="' + trackUrl + '"></a>';
 	console.log(element);
 	$(".sc-player").append(element);
+	var event_id = location.search.split('event=')[1];
+	var user_id = localStorage.user_id || "user_id not found";
+	if (!title) title = "untitled";
+	var song = new addedSong(trackUrl, title, "unknown", artwork_url, user_id);
+	console.log("THIS IS THE SONG OBJ" + song);
+	addSongToPlaylist(event_id, song);
 	// add song
 };

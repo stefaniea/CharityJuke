@@ -22,13 +22,20 @@ function PopulateHtml(ev) {
 	} else {
 		$('#event-name').text(ev.event_name);
 	 	GetUserAndPopulate(ev.owner_id+"");
-	 	var player = $("#player-container");
+	 	var container = $("#playlist");
+	 	container.html("");
+	 	container.html("<div class='sc-player' id='player-container'></div>");
+	 	var player = document.getElementById("player-container");
+	 	console.log("here is the player!!!! " + player);
+	 	player.innerHtml = "";
 	 	var playlist = ev.playlist;
 	 	console.log(playlist);
 	 	console.log("length" + playlist.length)
-		for(var i = 0; i < playlist.length; i++) {
+		for(var i = playlist.length-1; i >= 0; i--) {
 			var link = $();
-			player.html("<a href='"+playlist[i].trackURL+"'></a>");
+			var a = document.createElement("a");
+			a.href = playlist[i].trackURL;
+			player.appendChild(a);
 		}
 		populate();
 	 }

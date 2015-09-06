@@ -70,20 +70,20 @@
         </div>
     </section>
 
-    <section id="player">
-        <div class="container">
-            <div class="sc-player" id="player-container"></div>
-            
-            <form id="search" action="javascript:searchTrack();">
-                <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
-                
-                <button type="button" onclick='javascript:searchTrack();'>Search</button>
-            </form>
+    <div class="col-lg-8">
+        <section id="player">
+            <div class="container" id="playlist">
+                <div class="sc-player" id="player-container"></div>
 
-        </div>
-
+            </div>
+        </section>
+        <form id="search">
+        <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
+        
+        <button type="button" onclick='searchTrack()'>Search</button>
+        </form>
         <div id="search-results"></div>
-    </section>
+    </div>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
