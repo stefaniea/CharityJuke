@@ -90,9 +90,32 @@ function makeEvent() {
     }
 }
 
+window.onload = function() {
+  var query = "";
+  var query_results = [];
+  var results = $('#event-search-results');
+  results.empty();
+  results.append('<h1>All Events:</h1>');
+  eventsRef.once("value", function(snapshot) {
+      snapshot.forEach(function(namesnapshot) {
+        var name = namesnapshot.val().event_name || "";
+        if (name.indexOf(query) >= 0) {
+          var result = name + " " + namesnapshot.key();
+          query_results.push(result);
+        }
+      });
+      if (query_results.length == 0) {
+        query_results.push("No events yet D:");
+      }
+      addSearchResultsToHtml(query_results);
+  });
+}
+
 function search() {
   var query = document.getElementById("search_input").value;
-  $('#search-results').empty();
+  var results = $('#event-search-results');
+  results.empty();
+  results.append('<h1>Search Results:</h1>');
 
   var query_results = [];
   eventsRef.once("value", function(snapshot) {
@@ -109,15 +132,12 @@ function search() {
       }
       addSearchResultsToHtml(query_results);
   });
-
   
   return false;
 }
 
 function addSearchResultsToHtml(query_results) {
-  var results = $('#search-results');
-  results.append('<h1>Search Results:</h1>');
-
+  var results = $('#event-search-results');
 	query_results.forEach(function(result) {
 		// TODO: make this into a pretty grid
     var pieces = result.split("Event ");

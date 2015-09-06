@@ -8,6 +8,6 @@ var connect = require('connect');
 
 app.use(express.static(__dirname + '/'));
 
-app.listen(8000);
+app.listen(process.env.PORT || 8000)
 
 console.log('Server running at http://127.0.0.1:8000/');
