@@ -1,5 +1,18 @@
  var myFirebaseRef = new Firebase("https://charityjuke.firebaseio.com");
 
+function updateButtonDisplay() {
+    var user = localStorage.user_id;
+        if (user) {
+            $("#login").hide();
+            $("#event").show();
+            $("#browse").show();
+        } else {
+            $("#event").hide();
+            $("#browse").hide();
+            $("#login").show();
+        }
+};
+
 function facebookLogin() {
     myFirebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
     if (error) {
@@ -16,4 +29,5 @@ function facebookLogin() {
       }); //end set
     } // end else
   }); // authwithoauthpopup
+    updateButtonDisplay();
 };

@@ -69,23 +69,31 @@
             </div>
         </div>
     </section>
-
-    <div class="col-lg-8">
+<header>
+<div class="head-content">
+    <div class="header-content-inner">
+        <div class="row">
         <section id="player" class="container text-center" >
             <div class="container" id="playlist">
                 <div class="sc-player" id="player-container"></div>
 
             </div>
-        </section>
-        <form id="search">
-        <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
-        
-        <button type="button" onclick='searchTrack()'>Search</button>
+
+    <form id="search" onsubmit='searchTrack()'>
+       <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search by song or artist." id="trackQuery" name="trackSearch" size="21" value=""> 
+        <button id="basic-addon2" class="input-group-addon" href="#results" type="button page-scroll"onclick='searchTrack()'>Search</button>
+      </div>
+      
         </form>
-        <section class="container" id="results">
+    </row>
+    </div>
+</div>
+</header>
+
+  <section class="container" id="results">
             <div id="search-results"></div>
         </section>
-    </div>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
