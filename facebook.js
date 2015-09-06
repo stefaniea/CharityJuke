@@ -2,15 +2,24 @@
 
 function updateButtonDisplay() {
     var user = localStorage.user_id;
-    if (user) {
-        $("#login").hide();
-        $("#event").show();
-        $("#browse").show();
-    } else {
-        $("#event").hide();
-        $("#browse").hide();
-        $("#login").show();
-    }
+        if (user != "" && user) {
+            $("#login").hide();
+            $("#logout").show();
+            $("#event").show();
+            $("#browse").show();
+        } else {
+            $("#logout").hide();
+            $("#event").hide();
+            $("#browse").hide();
+            $("#login").show();
+        }
+};
+
+function facebookLogoutJK() {
+  localStorage.user_id = "";
+  myFirebaseRef.unauth();
+  updateButtonDisplay();
+  location.reload();
 };
 
 function facebookLogin() {
@@ -27,8 +36,12 @@ function facebookLogin() {
         name: authData.facebook.displayName,
         profile_img: authData.facebook.profileImageURL
       }); //end set
+            updateButtonDisplay();
     } // end else
   }); // authwithoauthpopup
+<<<<<<< HEAD
     updateButtonDisplay();
     location.reload();
+=======
+>>>>>>> ac822a8467525139956cf717c7388d45afa2f2bd
 };
