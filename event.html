@@ -79,7 +79,7 @@
         </section>
       </div>
       <div class="col-lg-8">
-        <form id="search" style="margin-left: 8px; margin-top: 20px;">
+        <div id="search" style="margin-left: 8px; margin-top: 20px;">
         <input type="text" id="trackQuery" name="trackSearch" size="50" value="" placeholder="Search by song name or artist here">
           <button type="button" onclick="searchTrack()" style="border:0px; background:transparent;">
               <span class="glyphicon glyphicon-search"></span>
@@ -132,6 +132,12 @@
             <!-- Some stuff to do on load -->
     <script>
     LoadEvent(location.search.split('event=')[1]);
+
+    $('#trackQuery').keypress(function (e) {
+    if (e.which == 13) {
+        searchTrack();
+  }
+});
     </script>
 
 </body>
