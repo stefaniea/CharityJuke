@@ -24,6 +24,21 @@ function PopulateHtml(ev) {
 		if (ev.description) {
 			$('#event-description').text(ev.description);
 		}
+		if (ev.date) {
+			$('#event-date').text(ev.date);
+		}
+		if (ev.starttime) {
+			$('#event-starttime').text(ev.starttime);
+		}
+		if (ev.endtime) {
+			$('#event-endtime').text(ev.endtime);
+		}
+		if (ev.song_price) {
+			$('#event-price').text(ev.song_price);
+		}
+		if (ev.priority_song_price) {
+			$('#event-priorityprice').text(ev.priority_song_price);
+		}
 	 	GetUserAndPopulate(ev.owner_id+"");
 	 	var container = $("#playlist");
 	 	container.html("");

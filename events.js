@@ -9,6 +9,10 @@ function Event(event_id, owner_id, playlist_id) {
     this.event_name = name;
     eventsRef.child("Event " + event_id).update({ event_name: this.event_name });
   }
+  this.setDate = function(date){
+    this.date = date;
+    eventsRef.child("Event " + event_id).update({ date: this.date });
+  };
   this.setStartTime = function(starttime){
     this.starttime = starttime;
     eventsRef.child("Event " + event_id).update({ starttime: this.starttime });
@@ -75,6 +79,7 @@ function makeEvent() {
       var event = new Event(guid, user_id, playlist_id);
 
       event.setEventName(event_name);
+      event.setDate(document.getElementById("date").value);
       event.setStartTime(document.getElementById("starttime").value);
       event.setEndTime(document.getElementById("endtime").value);
       event.setEventDescription(document.getElementById("event_description").value);
