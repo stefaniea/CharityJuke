@@ -72,7 +72,7 @@
 
     <section id="player">
         <div class="container">
-            <div class="sc-player"></div>
+            <div class="sc-player" id="player-container"></div>
             
             <form id="search" action="javascript:searchTrack();">
                 <input type="text" id="trackQuery" name="trackSearch" size="21" value="">
@@ -106,12 +106,11 @@
     <script src="facebook.js"></script>
     <script src="addSongToPlaylist.js"></script>
     <script src="events.js"></script>
-    <script src="load_event.js"></script>
+
 
     <!-- Soundcloud -->
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="soundcloud/sdk-2.0.0.js"></script>
-    <script src="soundcloud/track_search.js"></script>
 
     <!-- Node -->
     <script src="node_app.js"></script>
@@ -120,8 +119,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="player/js/soundcloud.player.api.js"></script>
     <script type="text/javascript" src="player/js/sc-player.js"></script>
+    <script src="load_event.js"></script>
+    <script src="soundcloud/track_search.js"></script>
 
-    <!-- Some stuff to do on load -->
+            <!-- Some stuff to do on load -->
     <script>
 
     LoadEvent(location.search.split('event=')[1]);

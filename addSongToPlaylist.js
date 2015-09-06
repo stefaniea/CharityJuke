@@ -5,16 +5,7 @@ function addedSong(trackURL, title, artist, artworkURL, user_id) {
 	this.title = title;
 	this.artist = artist;
 	this.artworkURL = artworkURL;
-	this.addedBy = function(user_id) {
-		var usersRef = myFirebaseRef.child("users");
-		var user;
-		usersRef.child("User "+ user_id).on("value", function(snapshot) {
-	 		console.log(snapshot.key());
-	 		user = snapshot.val();
-	 		console.log("GetUser: " + user);
-		});
-		this.addedBy = user;
-	};
+	this.addedBy = user_id;
 }
 
 function addSongToPlaylist(EventID, song) {
@@ -27,11 +18,17 @@ function addSongToPlaylist(EventID, song) {
  			console.log("Event ID resulted in 0 events.");
  		} else {
  			if (ev.playlist) {
- 			 var updated_playlist = ev.playlist.Unshift(song);
- 			 eventsRef.child("Event "+EventID).update({"playlist" : updated_playlist});
- 			} else {
+ 			 console.log(ev.playlist);
+ 			 var updated_playlist = new Array(ev.playlist.length+1);
+ 			 updated_playlist[0] = song;
+ 			 for (var i = 1; i < updated_playlist.length; i++) {
+ 			 	updated_playlist[i] = ev.playlist[i-1];
+ 			 }
+ 			 console.log(updated_playlist);
+ 			 eventsRef.child("Event "+EventID).update({playlist : updated_playlist});
+ 			} /*else {
  				eventsRef.child("Event "+EventID).set({"playlist" : [song]});
- 			}
+ 			}*/
  		 }
 	});
 };

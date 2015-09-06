@@ -22,6 +22,11 @@ function display(jsonTracks) {
 		var element = '<li><a href="#" onclick="addSong(\'' + track.permalink_url + '\')">' + track.title + '</a></li>';
 		console.log(element);
 		$(results).append(element);
+		var event_id = location.search.split('event=')[1];
+		var user_id = localStorage.user_id || "user_id not found";
+		var song = new addedSong(track.permalink_url, track.title, "unknown", track.artwork_url, user_id);
+		console.log("THIS IS THE SONG OBJ" + song);
+		addSongToPlaylist(event_id, song);
 	});
 };
 
@@ -30,4 +35,5 @@ function addSong(trackUrl) {
 	var element = '<a href="' + trackUrl + '"></a>';
 	console.log(element);
 	$(".sc-player").append(element);
+	// add song
 };

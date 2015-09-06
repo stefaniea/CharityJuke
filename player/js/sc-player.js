@@ -9,7 +9,7 @@
 *   <a href="http://soundcloud.com/matas/hobnotropic" class="sc-player">My new dub track</a>
 *   The link will be automatically replaced by the HTML based player
 */
-(function($) {
+var populate = function() {
   // Convert milliseconds into Hours (h), Minutes (m), and Seconds (s)
   var timecode = function(ms) {
     var hms = function(ms) {
@@ -662,4 +662,4 @@
     }
   });
 
-})(jQuery);
+};
