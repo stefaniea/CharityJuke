@@ -39,7 +39,7 @@ function getSongPrice(EventID, song) {
     eventsRef.child("Event "+EventID).once("value", function(snapshot) {
     	var price = snapshot.val().song_price;
     	var recipient = snapshot.val().venmo_id;
-    	var paymentUrl = 'https://venmo.com/?txn=pay&recipients=' + venmo_id + '&amount=' + price + 
+    	var paymentUrl = 'https://venmo.com/?txn=pay&recipients=' + recipient + '&amount=' + price + 
     	'&note=Charity%20Juke%20' + song + '&audience=public';
 
     	window.open(paymentUrl, '_blank').focus();
