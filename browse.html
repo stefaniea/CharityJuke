@@ -99,10 +99,99 @@
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>Make a Playlist Now!</h2>
-                <a href="#" class="btn btn-default btn-xl wow tada">Start Here!</a>
+                <a href="#" class="btn btn-default btn-xl wow tada" data-toggle="modal" data-target="#myModalHorizontal">Start Here!</a>
             </div>
         </div>
     </aside>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                       data-dismiss="modal">
+                           <span aria-hidden="true">&times;</span>
+                           <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="modalLabel" style="text-align: center;">
+                        Create an Event
+                    </h4>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form">
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Event Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="event_name" placeholder="Event Name"/>
+                            <span id="event_name_alert" class="help-block" style="display: none; color: red;"><small> Please provide a name for your event.</span></small>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Date</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="date"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Start Time</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="starttime"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">End Time</label>
+                        <div class="col-sm-8">
+                            <input type="time" class="form-control" id="endtime"/>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0px;">
+                        <label class="col-sm-4 control-label">Price</label>
+                        <div class="col-sm-8">
+                          $<input type="number" id="price" min="0.01" step="0.01" max="2500" value="0.25" />
+                          <span class="help-block"><small>Set the price to add one song to your event's playlist!</span></small>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0px;">
+                        <label class="col-sm-4 control-label">Priority Price</label>
+                        <div class="col-sm-8">
+                          $<input type="number" id="priority_price" min="0.01" step="0.01" max="2500" value="0.75" />
+                          <span class="help-block"><small>Set the price to add one priority song (plays immediately) to your event's playlist!</span></small>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0px;">
+                        <label class="col-sm-4 control-label">Venmo ID</label>
+                        <div class="col-sm-8">
+                          <input type="tel" id="venmo_id"/>
+                          <span class="help-block"><small>Put the event organizers' Venmo phone number (this is where money will be sent)!</span></small>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label" for="textarea">Event Description</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" id="event_description" name="event_description" placeholder="A party of potatoes!"></textarea>
+                        </div>
+                      </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="makeEvent()">
+                        Create Event
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
