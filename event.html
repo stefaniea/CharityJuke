@@ -70,26 +70,27 @@
         </div>
     </section>
 
-    <div class="row">
+    <div class="row" style="background-image : url('img/header.jpg')">
       <div class="col-lg-4">
-        <section id="player" style="padding:20px;">
+        <section  style="height:100%" id="player" style="padding:20px;">
             <div class="container" id="playlist">
                 <div class="sc-player" id="player-container"></div>
             </div>
         </section>
       </div>
       <div class="col-lg-8">
-        <form id="search" style="margin-left: 8px; margin-top: 20px;">
+        <div id="search" style="margin-left: 8px; margin-top: 20px;">
         <input type="text" id="trackQuery" name="trackSearch" size="50" value="" placeholder="Search by song name or artist here">
-          <button type="button" onclick="searchTrack()" style="border:0px; background:transparent;">
+          <button type="button" onclick="searchTrack()" style="border:0px; background:white;">
               <span class="glyphicon glyphicon-search"></span>
           </button>
-        </form>
+        </div>
         <div class="container" id="results" style="padding-left: 0px; padding-top: 20px;">
             <div id="search-results"></div>
         </div>
       </div>
     </div>
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -131,6 +132,12 @@
             <!-- Some stuff to do on load -->
     <script>
     LoadEvent(location.search.split('event=')[1]);
+
+    $('#trackQuery').keypress(function (e) {
+    if (e.which == 13) {
+        searchTrack();
+  }
+});
     </script>
 
 </body>
