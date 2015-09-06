@@ -21,10 +21,11 @@ function display(jsonTracks) {
 	jsonTracks.forEach(function(track) {
 		// TODO: make this into a pretty grid with artwork yay
 		url = track.permalink_url || "no";
-		var element = '<li><a href="#" onclick="addSong(\'' + track.permalink_url + '\',\'' + track.title +'\',\'' + track.artwork_url + '\')">' + track.title + '</a></li>';
-		console.log("THIS IS THE ELEMENT " + element);
-		$(results).append(element);
-	});
+		var element = '<div class=\'row\'><div class=\'container\'><a href="#" onclick="addSong(\'' + track.permalink_url + 
+			'\',\'' + track.title +'\',\'' + 
+			track.artwork_url + '\')"><li class="list-group-item"><div><img class="col-sm-" src='+ '\'' +track.artwork_url + '\'' +'/>'+ track.title +'</div></a></li></div></div>';
+			$(results).append(element);
+		});	
 };
 
 function addSong(trackUrl, title, artwork_url) {
