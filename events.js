@@ -93,7 +93,7 @@ function makeEvent() {
 window.onload = function() {
   var query = "";
   var query_results = [];
-  var results = $('#search-results');
+  var results = $('#event-search-results');
   results.empty();
   results.append('<h1>All Events:</h1>');
   eventsRef.once("value", function(snapshot) {
@@ -113,7 +113,7 @@ window.onload = function() {
 
 function search() {
   var query = document.getElementById("search_input").value;
-  var results = $('#search-results');
+  var results = $('#event-search-results');
   results.empty();
   results.append('<h1>Search Results:</h1>');
 
@@ -137,7 +137,7 @@ function search() {
 }
 
 function addSearchResultsToHtml(query_results) {
-  var results = $('#search-results');
+  var results = $('#event-search-results');
 	query_results.forEach(function(result) {
 		// TODO: make this into a pretty grid
     var pieces = result.split("Event ");
